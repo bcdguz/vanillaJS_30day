@@ -61,13 +61,22 @@
   document.addEventListener("keydown", (event) => {
     let code = event.keyCode;
     const sound = document.querySelectorAll(`audio[data-key='${code}']`)[0];
+    if (!sound) return;
+
     const divEle = document.querySelectorAll(`div[data-key='${code}']`)[0];
+    sound.currentTime = 0;
     sound.play();
     divEle.classList.add("playing");
   })
 
-  document.addEventListener("keyup", (event) => {
-    
+  const removeTransition = (event) => {
+    if (event.propertyName !== 'transform') return;
+    event.target.classList.remove('playing');
+  }
+
+  const keys = document.getElementsByClassName('key');
+  Array.from(keys).forEach(key => {
+    key.addEventListener("transitionend", removeTransition);
   })
 </script>
 
