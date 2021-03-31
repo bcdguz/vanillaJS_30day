@@ -60,8 +60,14 @@
 <script>
   document.addEventListener("keydown", (event) => {
     let code = event.keyCode;
-    const sound = document.querySelectorAll(`audio[data-key='${code}']`);
-    debugger
+    const sound = document.querySelectorAll(`audio[data-key='${code}']`)[0];
+    const divEle = document.querySelectorAll(`div[data-key='${code}']`)[0];
+    sound.play();
+    divEle.classList.add("playing");
+  })
+
+  document.addEventListener("keyup", (event) => {
+    
   })
 </script>
 
