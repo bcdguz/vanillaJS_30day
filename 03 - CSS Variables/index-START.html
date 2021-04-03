@@ -63,7 +63,9 @@
     const inputs = document.querySelectorAll('.controls input');
 
     const handleUpdate = (event) => {
-      console.log(event.target.value);
+      const ele = event.target;
+      const suffix = ele.dataset.sizing || '';
+      document.documentElement.style.setProperty(`--${ele.name}`, ele.value + suffix);
     }
 
     inputs.forEach(input => input.addEventListener('change', handleUpdate));
