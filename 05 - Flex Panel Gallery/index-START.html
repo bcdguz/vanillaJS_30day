@@ -132,6 +132,22 @@
   </div>
 
   <script>
+    const panels = document.getElementsByClassName("panel");
+    for (let i = 0; i < panels.length; i++) {
+      const panel = panels[i];
+      
+      panel.addEventListener("click", (e) => {
+        
+        const currPanel = e.currentTarget;
+        if (currPanel.classList.length === 2) {
+          currPanel.classList.add("open");
+          currPanel.classList.add("open-active");
+        } else {
+          currPanel.classList.remove("open");
+          currPanel.classList.remove("open-active");
+        }
+      })
+    }
 
   </script>
 
