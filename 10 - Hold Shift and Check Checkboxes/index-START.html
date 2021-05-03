@@ -96,6 +96,30 @@
   </div>
 
 <script>
+  const allInputs = document.querySelectorAll('input');
+  for (let i = 0; i < allInputs.length; i++) {
+    const input = allInputs[i];
+    input.addEventListener('click', (e) => {
+      if (e.shiftKey) {
+        e.target.checked = false;
+        const clickedIdx = findIdx(allInputs);
+        const start = Math.min(clickedIdx, i);
+        const end = Math.max(clickedIdx, i);
+        for (let j = start; j <= end; j++) {
+          allInputs[j].checked = true;
+        }
+      }
+    })
+  }
+
+  const findIdx = (inputs) => {
+    for (let i = 0; i < inputs.length; i++) {
+      const input = inputs[i];
+      if (input.checked) return i;
+    }
+    return 0;
+  }
+
 </script>
 </body>
 </html>
