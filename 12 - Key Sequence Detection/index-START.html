@@ -8,7 +8,7 @@
 <body>
 <script>
 const queue = [];
-const secret = 'baller'
+const secret = 'blackpink'
 document.addEventListener('keyup',(e) => {
   if (queue.length < secret.length) {
     queue.push(e.key);
@@ -17,7 +17,9 @@ document.addEventListener('keyup',(e) => {
     queue.push(e.key);
   }
   console.log(queue);
-  if (queue.join('') === secret) console.log('ding ding!')
+  if (queue.join('') === secret) {
+    cornify_add();
+  }
 
 })
 </script>
