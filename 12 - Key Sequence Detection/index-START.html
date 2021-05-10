@@ -8,14 +8,17 @@
 <body>
 <script>
 const queue = [];
-document.addEventListener('keydown',(e) => {
-  if (queue.length < 6) {
+const secret = 'baller'
+document.addEventListener('keyup',(e) => {
+  if (queue.length < secret.length) {
     queue.push(e.key);
   } else {
     queue.shift();
     queue.push(e.key);
   }
   console.log(queue);
+  if (queue.join('') === secret) console.log('ding ding!')
+
 })
 </script>
 </body>
