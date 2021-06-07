@@ -35,6 +35,14 @@
   </style>
 
 <script>
+  const hero = document.getElementsByClassName('hero')[0];
+  const text = hero.innerHTML;
+
+  const shadow = (e) => {
+    console.log(e)
+  }
+
+  hero.addEventListener('mousemove', shadow);
 </script>
 </body>
 </html>
