@@ -46,9 +46,24 @@
   <ul id="bands"></ul>
 
 <script>
+
+
 const bands = ['The Plot in You', 'The Devil Wears Prada', 'Pierce the Veil', 'Norma Jean', 'The Bled', 'Say Anything', 'The Midway State', 'We Came as Romans', 'Counterparts', 'Oh, Sleeper', 'A Skylit Drive', 'Anywhere But Here', 'An Old Dog'];
+bands.sort((bandA, bandB) => {
+  const fillerWords = {"A":true, "THE":true, "AN":true};
+  const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  const titleA = bandA.split(' ');
+  const titleB = bandB.split(' ');
+  const wordA = fillerWords[titleA[0].toUpperCase()] ? titleA[1] : titleA[0];
+  const wordB = fillerWords[titleB[0].toUpperCase()] ? titleB[1] : titleB[0];
+  if (alphabet.indexOf(wordA) > alphabet.indexOf(wordB)) {
+    return 1;
+  } else {
+    return -1;
+  }
+});
 
-
+console.log(bands);
 </script>
 
 </body>
