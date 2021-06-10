@@ -150,7 +150,7 @@
     <li data-time="4:36">
       Video 48
     </li>
-    <li data-time="3:16">
+    <li data-time="1:16">
       Video 49
     </li>
     <li data-time="1:10">
@@ -189,8 +189,13 @@
       const [mins, secs] = timeCode.split(":").map(parseFloat)
       return mins * 60 + secs;
     })
-    .reduce((total, seconds) => total + seconds)
-  
+    .reduce((total, vidSeconds) => total + vidSeconds)
+  let secondsLeft = seconds;
+  const hours = Math.floor(secondsLeft/3600);
+  secondsLeft = secondsLeft % 3600;
+  const mins = Math.floor(secondsLeft/60);
+  secondsLeft = secondsLeft % 60;
+  console.log(hours,mins,secondsLeft);
 </script>
 </body>
 </html>
