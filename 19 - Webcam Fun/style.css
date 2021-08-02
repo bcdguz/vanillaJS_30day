@@ -26,6 +26,7 @@ html {
 }
 
 .photo {
+  transform: rotateY(180deg);
   width: 100%;
   float: left;
 }
