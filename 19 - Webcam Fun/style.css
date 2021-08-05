@@ -18,6 +18,11 @@ html {
   border-radius: 2px;
 }
 
+button {
+  position: absolute;
+  z-index: 1;
+}
+
 /*clearfix*/
 .photobooth:after {
   content: '';
